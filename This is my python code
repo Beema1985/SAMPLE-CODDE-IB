@@ -1,0 +1,26 @@
+def calculate_bonus(sale):
+    if sale >= 500000:
+        return sale * 0.20
+    elif sale >= 100000 and sale < 500000:
+        return sale * 0.15
+    elif sale >= 75000 and sale < 100000:
+        return sale * 0.10
+    elif sale >= 50000 and sale < 75000:
+        return sale * 0.05  
+    else:
+        return 0
+
+num_sales = int(input("Enter number of sales: "))
+sales = [] 
+for i in range(num_sales):
+    sale = float(input(f"Enter sale amount {i+1}: "))
+    sales.append(sale)
+total_bonus = 0
+print("Sales\tBonus")
+for sale in sales:
+    bonus = calculate_bonus(sale)
+    total_bonus += bonus
+    print("sales,bonus")
+
+average_bonus = total_bonus / num_sales
+print(f"\nAverage bonus: {average_bonus}")
